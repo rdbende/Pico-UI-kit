@@ -1,7 +1,7 @@
 import time
 from machine import ADC, Pin
 
-running = True
+running = False
 elements_with_events = []
 on_quit = []
 
@@ -225,6 +225,9 @@ def quit():
 
 
 def run():
+    global running
+    running = True
+    
     while running:
         for item in elements_with_events:
             item._handle_events()
